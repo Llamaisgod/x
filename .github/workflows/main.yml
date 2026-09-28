@@ -1,0 +1,38 @@
+name: Build
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check project layout
+        run: |
+          test -f build.gradle || { echo "build.gradle not found at repo root. Push the CONTENTS of the easier-hydrogen folder, not the folder itself."; ls -la; exit 1; }
+
+      - name: Validate recipe JSON
+        run: |
+          find src/main/resources -name '*.json' -print0 | xargs -0 -n1 python3 -m json.tool > /dev/null
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 21
+
+      - uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: 8.14.3
+
+      - name: Build
+        run: gradle build --stacktrace
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: easier-hydrogen
+          path: build/libs/*.jar
+          if-no-files-found: error
