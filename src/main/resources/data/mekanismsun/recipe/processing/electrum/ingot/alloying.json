@@ -1,0 +1,10 @@
+{
+  "neoforge:conditions": [
+    { "type": "neoforge:mod_loaded", "modid": "mekanismsun" }
+  ],
+  "type": "mekanismsun:alloying",
+  "main_input": { "item": "minecraft:gold_ingot" },
+  "extra_input": { "item": "minecraft:iron_ingot" },
+  "chemical_input": { "amount": 100, "chemical": "mekanismsun:helium" },
+  "output": { "count": 2, "id": "mekanismsun:electrum_ingot" }
+}

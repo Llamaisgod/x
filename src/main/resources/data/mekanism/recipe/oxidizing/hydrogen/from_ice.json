@@ -1,0 +1,17 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "mekanism"
+    }
+  ],
+  "type": "mekanism:oxidizing",
+  "input": {
+    "count": 1,
+    "item": "minecraft:ice"
+  },
+  "output": {
+    "amount": 400,
+    "id": "mekanism:hydrogen"
+  }
+}

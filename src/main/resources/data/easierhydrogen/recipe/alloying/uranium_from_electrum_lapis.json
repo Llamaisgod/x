@@ -1,0 +1,11 @@
+{
+  "neoforge:conditions": [
+    { "type": "neoforge:mod_loaded", "modid": "mekanism" },
+    { "type": "neoforge:mod_loaded", "modid": "mekanismsun" }
+  ],
+  "type": "mekanismsun:alloying",
+  "main_input": { "item": "mekanismsun:electrum_ingot" },
+  "extra_input": { "item": "minecraft:lapis_lazuli" },
+  "chemical_input": { "amount": 100, "chemical": "mekanismsun:helium" },
+  "output": { "count": 2, "id": "mekanism:raw_uranium" }
+}
